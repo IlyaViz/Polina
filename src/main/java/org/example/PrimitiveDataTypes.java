@@ -16,6 +16,7 @@ public class PrimitiveDataTypes {
                             "char: stores single character/letter/ASCII value"
         );
     }
+
     public static void getPrimitiveInfo(String primitive) throws KeyException{
         Map<String, String> primitivesDict = Map.of(
                 "byte", "whole numbers from -128 to 127\n",
@@ -27,7 +28,7 @@ public class PrimitiveDataTypes {
                 "boolean","stores true or false\n",
                 "char", "stores single character/letter/ASCII value\n"
         );
-
+    
         String lowercasePrimitive = primitive.toLowerCase();
         String info = primitivesDict.get(lowercasePrimitive);
         if(info != null){
