@@ -2,7 +2,7 @@ package org.example;
 
 public class BracketsValidation {
     public static void validateBrackets(String a) throws Exception {
-
+        
         char[] chars = a.toCharArray();
         int rightBrackets = 0;
 
