@@ -1,10 +1,23 @@
 package org.example;
 
+import javax.sound.sampled.LineUnavailableException;
 import java.util.*;
 
 public class BracketsValidation {
+
+    private static boolean textHasOneOrMoreCharacters(String text){
+        if(text == null || text.length() == 0){
+            return false;
+        }
+        return true;
+    }
+
     public static void validateRoundBrackets(String text) throws Exception {
-        
+
+        if (!textHasOneOrMoreCharacters(text)){
+            throw new LineUnavailableException("Invalid text");
+        }
+
         char[] chars = text.toCharArray();
         int rightBrackets = 0;
 
@@ -26,6 +39,12 @@ public class BracketsValidation {
     }
     public static void validateAllBrackets(String text) throws Exception{
 
+        if (!textHasOneOrMoreCharacters(text)){
+            throw new LineUnavailableException("Invalid text");
+        }
+
+        var chars = text.toCharArray();
+
         var bracketsMap = new HashMap<Character, Map>(Map.of(
                 '(', new HashMap<>(Map.of("count", 0)),
                 '<', new HashMap<>(Map.of("count", 0)),
@@ -36,10 +55,6 @@ public class BracketsValidation {
                 '}', new HashMap<>(Map.of("pair", '{')),
                 ']', new HashMap<>(Map.of("pair", '['))));
 
-
-
-
-        var chars = text.toCharArray();
         ArrayList<Character> bracketsFromText = new ArrayList<Character>();
 
         for(Character character : chars){
