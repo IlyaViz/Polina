@@ -1,17 +1,13 @@
 package org.example;
 
-public class UkraineAutoService implements Company{
-    Integer employess;
-    Integer daySalary;
-    Integer days;
-
+public class UkraineAutoService extends Work implements NationalExchanger {
     @Override
-    public Integer countSalary() {
-        return employess*daySalary*days;
+    public Currency euroToNationalCurrency(Float euros) {
+        return new Currency(euros*coefficientEuroToNationalCurrency, "Грн");
     }
-    public UkraineAutoService(Integer employess, Integer daySalary, Integer days){
-        this.employess = employess;
-        this.daySalary = daySalary;
-        this.days = days;
+    public UkraineAutoService(Integer employees, Float daySalary, Integer days, String country, Float coefficientEuroToNationalCurrency) {
+        super(employees, daySalary, days, country, coefficientEuroToNationalCurrency);
     }
+
+
 }
