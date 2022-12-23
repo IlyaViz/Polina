@@ -11,7 +11,7 @@ public class AccountantService {
     }
 
     public Currency getSalaryToPay(){
-        Float sum = company.workForce.workingDays * company.workForce.daySalary * company.workForce.employees;
+        Float sum = company.workForce.workingDays * company.workForce.daySalary * company.workForce.participants;
         Currency money = companySalaryConverter.euroToNationalCurrency(sum);
         return money;
 
