@@ -1,9 +1,19 @@
 package org.example;
 
 public class AccountantService {
-    public static Currency getSalaryToPay(Work workData, NationalExchanger company){
-        Float sum = workData.days*workData.daySalary*workData.employees;
-        Currency money = company.euroToNationalCurrency(sum);
+
+    Company company;
+    SalaryConverter companySalaryConverter;
+
+    public AccountantService(Company company, SalaryConverter companySalaryConverter){
+        this.company = company;
+        this.companySalaryConverter = companySalaryConverter;
+    }
+
+    public Currency getSalaryToPay(){
+        Float sum = company.workForce.workingDays * company.workForce.daySalary * company.workForce.employees;
+        Currency money = companySalaryConverter.euroToNationalCurrency(sum);
         return money;
+
     }
 }

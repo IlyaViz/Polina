@@ -1,5 +1,5 @@
 package org.example;
 
-public interface NationalExchanger {
+public interface SalaryConverter {
     public Currency euroToNationalCurrency(Float euros);
 }
